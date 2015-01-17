@@ -1,6 +1,4 @@
-from parse_rest.connection import register
-from parse_rest.user import User as ParseUser
-from parse_rest.datatypes import Object as ParseObject
+from database_utility import DatabaseManager
 
 from flask import *
 import os
@@ -22,32 +20,48 @@ def register_route():
         if request.method == 'GET':
             return render_template("register.html", **options)
 
-        # The method is POST. User has submitted their info.
+        # User has submitted their info.
         else:
-            #Check if the user entered valid information.
+            # Get the entered information.
+            # p_ denotes "Possible"
+            p_username = request.form.get('username')
+            p_password = request.form.get('password')
+            # Check if the user entered valid information.
 
             # Check if the Username is valid.
-            if not request.form.get('username'):
+            if not p_username:
                 options["error_message"] = "Please enter a username"
                 return render_template("register.html", **options)
 
             # If the username field has a string, check if that string
             # matches an entry in the database. (returns a list)
-            possibleUser = ParseUser.Query.get(username=sessions["username"])
 
-            # If the username is already in use ...
-            if request.form.get('username') in possibleUser:
-                options["error_message"] = "Username already in use"
-                return render_template("register.html", **options)
+            # Open Database
+            dbManager = DatabaseManager()
+
+            # Check ...
+            try:
+                possibleUser = ParseUser.Query.get(username = p_username)
+            except:
+                possibleUser = None
+
+            if possibleUser != None:
+                # If the username is already in use ...
+                if possibleUser.username == p_username:
+                    options["error_message"] = "Username already in use"
+                    return render_template("404.html", **options)
 
             # If the username is not in use, then check if the password
             # is valid.
-            if not request.form.get('password'):
+            if not p_password:
                 options["error_message"] = "Please enter a valid password"
                 return render_template("register.html", **options)
 
             # If the password and username check out, then attempt
             # to add the user to the database.
+            dbManager.add_user(p_username, p_password)
+            return render_template("index.html", **options)
+
 
 
 
