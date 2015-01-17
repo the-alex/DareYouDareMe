@@ -41,7 +41,7 @@ def register_route():
 
             # Check ...
             try:
-                possibleUser = ParseUser.Query.get(username = p_username)
+                possibleUser = dbManager.check_for_user(p_username)
             except:
                 possibleUser = None
 

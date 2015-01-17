@@ -1,4 +1,5 @@
 from database_utility import DatabaseManager
+from database_utility import ParseUser
 from flask import *
 import os
 
@@ -15,7 +16,14 @@ def login_route():
         p_username = request.form.get('username')
         p_password = request.form.get('password')
 
+        # Provide access to database
         dbManager = DatabaseManager()
+
+        # TODO: Implement try/catch on login
+        user = ParseUser.login(p_username, p_password)
+
+        # add to session? I'm going to sleep. // Alex C.
+
 
 
 

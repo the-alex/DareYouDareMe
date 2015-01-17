@@ -20,3 +20,6 @@ class DatabaseManager(object):
             return render_template("register.html", **options)
 
         newUser.save()
+
+    def check_for_user(self, username):
+        return ParseUser.Query.get(username = p_username)
