@@ -5,11 +5,11 @@ new_dare = Blueprint('new_dare', __name__, template_folder='templates')
 
 @new_dare.route('/newDare', methods=['GET', 'POST'])
 def new_dare_route():
-    
+
     options = {
         "show_new_dare_form" : False,
-        "successful_dare_post": False, 
-        "errors" = None
+        "successful_dare_post": False,
+        "errors" : None
     }
 
     if "username" not in session: # not currently logged in

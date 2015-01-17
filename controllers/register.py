@@ -26,9 +26,12 @@ def register_route():
             return render_template("register.html", **options)
 
         else:
+            # If the email string is empty.
             if not request.form.get('email'): # if there is no string
                 options["error_message"] = "Please choose a non-empty email"
 
+            # listedUser = ParseUser.Query.get(email)
+            # If the email is taken already ...
             if request.form.get('email') in list_of_usernames:
                 options["error_message"] = "Email already taken, please choose another"
 
