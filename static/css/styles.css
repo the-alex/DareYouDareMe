@@ -30,7 +30,7 @@
 #submit
 {
 	font-size : 20px;
-	border : solid 0px #ffffff;
+	border : solid 1px #016897;
 	color : #dffe62;
 	padding : 0px 80px;
 	background-color : #454545;
@@ -38,25 +38,28 @@
 
 #logos
 {
-	margin-left:33em;
+	text-align:center;
 }
 
 #BountyCoin
 {
 	width:200px; 
-	height:200px; 
-	float:left; 
-	padding-top:15px; 
-	padding-left:15px;
-	position:absolute;
+	height:200px; 	
+}
+
+#menu
+{
+	width:100%;
+	height:50px;
+	background-color:#DFFE62;
+	position:fixed;
+	top:0;
 }
 
 #NoBounty
 {
-	width:200px; 
-	padding-top: 215px; 
-	padding-left:15px;
-	position:relative;
+	width:400px; 
+
 }
 
 body
@@ -80,5 +83,5 @@ h1 {
 
 #reghead
 {
-	padding-top:30px;
+	padding-top:0px;
 }
