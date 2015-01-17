@@ -1,8 +1,19 @@
-
-<h2>Register</h2>
-
-<form action="register" method="POST">
-    <input type="text"     name="username" placeholder="Username"> </input> <br>
-    <input type="password" name="password" placeholder="Password"> </input> <br>
-    <input type="submit"   name="Register" value="Register"> 
-</form>
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>
+                Welcome to the Registration Page, Fool
+                </h1>
+            </div>
+            <div class="col-md-6">
+                <form action="register" method="POST">
+                    <input type="text" name="email" placeholder="Email"> </input> <br>
+                    <input type="password" name="password" placeholder="Password"> </input> <br>
+                    <input type="submit" name="register" value="Register">
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
