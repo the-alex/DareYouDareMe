@@ -15,7 +15,6 @@ def login_route():
         # Get the text entered in the fields.
         p_username = request.form.get('username')
         p_password = request.form.get('password')
-
         # Provide access to database
         dbManager = DatabaseManager()
 
@@ -23,6 +22,10 @@ def login_route():
         user = ParseUser.login(p_username, p_password)
 
         # add to session? I'm going to sleep. // Alex C.
+        print user.username
+        session['username']= user.username
+
+        return redirect('/')
 
 
 
