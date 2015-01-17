@@ -6,7 +6,74 @@
     text-align: center;
 }
 
-h1{
-	font-family:Garamond;
-	color:#00b9f2;
+#regform
+{
+	text-align:center;
+	padding-top:45px;
+	float:center;
+}
+
+#regfeild
+{
+	width:240px;
+	height:45px;
+	text-align:right;
+	margin:auto;
+}
+
+
+#submit
+{
+	font-size : 20px;
+	border : solid 0px #ffffff;
+	color : #dffe62;
+	padding : 0px 80px;
+	background-color : #454545;
+}
+
+#logos
+{
+	margin-left:33em;
+}
+
+#BountyCoin
+{
+	width:200px; 
+	height:200px; 
+	float:left; 
+	padding-top:15px; 
+	padding-left:15px;
+	position:absolute;
+}
+
+#NoBounty
+{
+	width:200px; 
+	padding-top: 215px; 
+	padding-left:15px;
+	position:relative;
+}
+
+body
+{
+	background-color: #454545;
+}
+
+@font-face
+{
+	font-family: Allan;
+	src: url(Allan-Regular.ttf);
+}
+
+h1 {
+	font-family: Gulim, Tahoma;
+	text-align: center;
+	color: #dffe62;
+	font-size: 6.1em;
+	padding-top:45px;
+}
+
+#reghead
+{
+	padding-top:30px;
 }

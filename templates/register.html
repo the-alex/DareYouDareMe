@@ -1,19 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
+
     <div class="container">
+		
         <div class="row">
-            <div class="col-md-6">
-                <h1>
-                i dare you to register
+		<div id="logos">
+			<img id = "BountyCoin" src="/static/css/BountyCoin.png"/>
+			<img id = "NoBounty" src="/static/css/DareYouDareNoBounty.png"/>
+		</div>
+            <div class="col-md-12">
+                <h1 id="reghead">
+                 <b> i dare you to register </b>
                 </h1>
             </div>
-            <div class="col-md-6">
-                <form action="register" method="POST">
-                    <input type="text" name="email" placeholder="Email"> </input> <br>
-                    <input type="password" name="password" placeholder="Password"> </input> <br>
-                    <input type="submit" name="register" value="Register">
-                </form>
-            </div>
+            
         </div>
+		<div class="row">
+		<div class="col-md-12">
+				<div id="regform">
+                <form action="register" method="POST">
+                    <input type="text" name="email" placeholder="Email" class="form-control" id="regfeild"> </input> <br>
+                    <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild"> </input> <br>
+                    <input type="submit" name="register" value="register" id="submit">
+				
+                </form>
+				</div>
+            </div>
+		</div>
     </div>
 {% endblock %}
