@@ -1,5 +1,3 @@
-
-
 from parse_rest.connection import register
 from parse_rest.user import User as ParseUser
 from parse_rest.datatypes import Object as ParseObject
@@ -11,7 +9,7 @@ register = Blueprint('register', __name__, template_folder='templates')
 
 @register.route('/register', methods=['GET', 'POST'])
 def register_route():
-    list_of_usernames = ['testuser', 'alex', 'preeti', 'devin', 'erin']
+    # list_of_usernames = ['testuser', 'alex', 'preeti', 'devin', 'erin']
 
     options = {
         "error_message": None # if something went wrong, this should be replaced
@@ -27,12 +25,12 @@ def register_route():
 
         else:
             # If the email string is empty.
-            if not request.form.get('email'): # if there is no string
+            if not request.form.get('email'):
                 options["error_message"] = "Please choose a non-empty email"
 
-            # listedUser = ParseUser.Query.get(email)
+            possibleUser = ParseUser.Query.get(email=sessions["email"])
             # If the email is taken already ...
-            if request.form.get('email') in list_of_usernames:
+            if request.form.get('email') in possibleUser:
                 options["error_message"] = "Email already taken, please choose another"
 
             if not request.form.get('password'):
