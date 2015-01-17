@@ -3,6 +3,9 @@ from parse_rest.connection import register
 from parse_rest.user import User as ParseUser
 from parse_rest.datatypes import Object as ParseObject
 
+class Dares(ParseObject):
+    pass
+
 class DatabaseManager(object):
     """Helps with database operations, yo"""
     def __init__(self):
@@ -23,3 +26,7 @@ class DatabaseManager(object):
 
     def check_for_user(self, username):
         return ParseUser.Query.get(username = p_username)
+
+    def get_dares(self):
+        return Dares.Query.all()
+
