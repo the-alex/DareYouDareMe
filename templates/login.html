@@ -5,10 +5,10 @@
             <h1><img src="/static/css/DareYouDareMe.png"</h1>
             <h3>{{test}}</h3>
             <div class="login-box">
-                <form action="POST" name="login_form">
-                        <input type="text" name="email" placeholder="Email" class="form-control" id="regfeild"> </input> <br>
+                <form method="POST" action="/login">
+                    <input type="text" name="username" placeholder="Email" class="form-control" id="regfeild"> </input> <br>
                     <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild"> </input> <br>
-                    <input type="button" name="login" value="login" id="submit">
+                    <input type="submit" name="login" value="login" id="submit">
                 </form>
             </div>
         </div>
