@@ -1,3 +1,9 @@
+
+
+from parse_rest.connection import register
+from parse_rest.user import User as ParseUser
+from parse_rest.datatypes import Object as ParseObject
+
 from flask import *
 import os
 
@@ -12,23 +18,23 @@ def register_route():
                              # with a string that says what went wrong
     }
 
-    if "username" in session: # not currently logged in
+    if "email" in session: # if currently logged in
         return redirect(url_for('account'))
 
     else:
         if request.method =='GET':
             return render_template("register.html", **options)
-        
-        else:
-            if not request.form.get('username'):
-                options["error_message"] = "Please choose a non-empty username"
 
-            if request.form.get('username') in list_of_usernames:
-                options["error_message"] = "Username already taken, please choose another"
-            
+        else:
+            if not request.form.get('email'): # if there is no string
+                options["error_message"] = "Please choose a non-empty email"
+
+            if request.form.get('email') in list_of_usernames:
+                options["error_message"] = "Email already taken, please choose another"
+
             if not request.form.get('password'):
                 options["error_message"] = "Please choose a stronger password"
-            
+
             # attempt to add to db
             added_to_db = True
             if added_to_db: # Assume that the user was successfully added to the db
