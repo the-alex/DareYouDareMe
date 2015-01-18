@@ -1,11 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="menu1"></div>
 <div id="menu">
-    {% if logout_available %}
-	<div id="lefttext"><h6><a href="logout">logout </a></h6></div>
-    {% endif %}
-    <div id="righttext"><h5><a href="/"><w style="color:#b7d051">dareyoudare.me</w></a> <a style="color:#454545" href="account">account </a></h5></div>
+	<div id="lefttext">
+			<div id="wrapabout">
+				<h5>
+					<a style="color:#DFFE62" href="about">about</a>
+				</h5>
+			</div>
+	</div>
+		<a href="/">
+			<img id="NoBounty" src="/static/css/DareYouDareNoBounty.png"/>
+		</a>
+			<div id="wrapaccount">
+				<h5>
+					<a style="color:#DFFE62" href="account">account</a>
+				</h5>
+			</div>
+			<div id="wraplogout">
+				<h6>
+					<a style="color:#DFFE62" href="logout">logout</a>
+				</h6>
+			</div>
 </div>
 
     <h1><y style="color:#67ccfa">About Us</y></h1>

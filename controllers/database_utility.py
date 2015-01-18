@@ -85,7 +85,7 @@ class DatabaseManager(object):
         return True
 
     def give_video(self, url, id):
-        dare = Dares.Query.get(id = id)
+        dare = Dares.Query.get(objectId = id)
         dare.videoURL = url
         dare.verified = True
         dare.save()

@@ -21,21 +21,36 @@ function getLocation() {
 
 {% extends "base.html" %}
 {% block content %}
-<div id="menu1"></div>
-<div id="menu">
-	<h5><a style="color:#c9e264" href="about">about </a><a style="color:#454545" href="register">register</a></h5>
-</div>
+    <div id="menu">
+        <div id="lefttext">
+            <div id="wrapabout">
+                <h5>
+                <a style="color:#DFFE62" href="about">about</a>
+                </h5>
+            </div>
+        </div>
+        <div id="wrapreg">
+            <h6>
+            <a style="color:#454545" href="register">register</a>
+            </h6>
+        </div>
+    </div>
     <div class="container">
         <div class="starter-template">
-            <h1><img src="/static/css/DareYouDareMe.png"</h1>
-            <h3>
-                {%if error %}
-                    {{error}}
-                {%endif%}
-
-
-            </h3>
-            <div class="login-box">
+            <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <img class="img-responsive" src="/static/css/DareYouDareMe.png">
+            </div>
+            <div class="col-lg-2"></div>
+            <div class="row">
+                <div class="error-box">
+                    <h2>
+                    {%if error %}
+                        {{error}}
+                    {%endif%}
+                    </h2>
+            <div class="row">
                 <form id="login-action" method="POST" action="/login" >
                     <input type="text" name="username" placeholder="Email" class="form-control" id="regfeild" required> </input> <br>
                     <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild" required> </input> <br>
@@ -48,4 +63,5 @@ function getLocation() {
             </div>
         </div>
     </div>
+
 {% endblock %}
