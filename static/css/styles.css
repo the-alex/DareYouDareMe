@@ -44,8 +44,9 @@
 
 #BountyCoin
 {
-	width:200px; 
-	height:200px; 	
+	width:250px; 
+	height:250px; 
+padding-top:15px;	
 }
 
 #menu
@@ -61,6 +62,16 @@
 {
 	width:400px; 
 
+}
+
+#darehold
+{
+		margin-top:65px;
+}
+
+#darebox
+{
+	border: solid 1px #016897;
 }
 
 body
@@ -80,6 +91,20 @@ h1 {
 	color: #dffe62;
 	font-size: 6.1em;
 	padding-top:45px;
+}
+
+h3{
+	font-family: Gulim, Tahoma;
+	color: #dffe62;
+	font-size: 4em;
+}
+
+h2
+{
+	font-family:Allan;
+	font-size:3em;
+	color: #016897;
+	text-align: center;
 }
 
 #reghead
