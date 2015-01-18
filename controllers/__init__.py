@@ -7,3 +7,5 @@ from about import *
 from venmoauth import *
 from logout import *
 from video import *
+from proof import *
+from verify import *

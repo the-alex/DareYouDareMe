@@ -72,15 +72,25 @@ class DatabaseManager(object):
         return ParseUser.Query.get(username = username)
 
     def get_needed_dares(self, my_lat, my_lon):
-        my_loc = GeoPoint(latitude=my_lat, longitude=my_lon)
+        needed_dares = []
 
-        return Dares.Query.filter(done__ne=True).filter(verified__ne=True).filter(location__nearSphere=my_loc)
+        # my_lat = x, my_lon = y
+        for dare in Dares.Query.all():
+            targetLat = dare.latitude
+            targetLon = dare.longitude
 
-    def get_verified_dares(self):
-        return Dares.Query.filter(done__ne=True).filter(verified = True)
+            dist = (abs(float(targetLat - my_lat)) ** 2.0) + (abs(float(targetLon - my_lon)) ** 2.0) ** 0.5
+
+            if dist < 10.00:
+                needed_dares.append(dare)
+
+        return needed_dares
+
+    def get_claimed_dares(self):
+        return Dares.Query.filter().filter(claimed = True).filter(verified = False)
 
     def get_single_dare(self, id):
-        return Dares.Query.filter(id=id)
+        return Dares.Query.filter(objectId=id)
 
     def save_dare(self, dare_things, session):
         dare = Dares()
@@ -90,13 +100,19 @@ class DatabaseManager(object):
         dare.latitude = float(dare_things['latitude'])
         dare.longitude = float(dare_things['longitude'])
         dare.username = session['username']
+        dare.verified = False
+        dare.claimed = False
         dare.save()
         return True
 
-    def give_video(self, url, id):
+    def give_proof(self, url, id, session):
         dare = Dares.Query.get(objectId = id)
-        dare.videoURL = url
-        dare.verified = True
+        dare.proofUrl = url
+        dare.claimed = True
+        dare.claiming_user = session["username"]
         dare.save()
 
-    # def award_user_points(self, username):
+    def award_user_points(self, username, amount):
+        user = ParseUser.Query.get(username = username)
+        user.points += amount
+        user.save()

@@ -21,10 +21,10 @@ app.register_blueprint(controllers.index)
 app.register_blueprint(controllers.account)
 app.register_blueprint(controllers.register)
 app.register_blueprint(controllers.new_dare)
-app.register_blueprint(controllers.venmoauth)
 app.register_blueprint(controllers.about)
 app.register_blueprint(controllers.logout)
-app.register_blueprint(controllers.video)
+app.register_blueprint(controllers.proof)
+app.register_blueprint(controllers.verify)
 
 
 @app.errorhandler(404)
@@ -40,5 +40,3 @@ def access_denied(e):
 if __name__ == '__main__':
     # listen on external IPs
     app.run(host='0.0.0.0', port=3000, debug=True)
-
-
