@@ -2,7 +2,7 @@
     border: 0px dashed black;
 }
 .starter-template {
-    padding: 40px 15px;
+    padding: 70px 15px;
     text-align: center;
 }
 
@@ -45,9 +45,9 @@
 
 #BountyCoin
 {
-	width:250px;
-	height:250px;
-padding-top:15px;
+	width:15vw;
+
+padding-top:75px;
 }
 
 #BountyCoinMain
@@ -69,24 +69,23 @@ padding-top:15px;
 #menu
 {
 	width:100%;
-	height:78px;
+	height:9.55vh;
 	background-color:#DFFE62;
 	top:0;
-	position:fixed
+	position:fixed;
+	z-index:3;
 	/*margin-top:15px; */
 }
-/*
-#menu1
+
+#scale
 {
-	width:100%;
-	height:30px;
-	background-color:#DFFE62;
-	top:0;
-} */
+	position:relative;
+}
 
 #lefttext
 {
 	float:left;
+
 }
 
 #righttext
@@ -96,9 +95,14 @@ padding-top:15px;
 
 #NoBounty
 {
-	height:78px;
+	height:9.55vh;
+	width:28vw;
 	padding-left:15px;
-
+}
+#test
+{
+	position:relative;
+	float:right;
 }
 
 #darehold
@@ -126,7 +130,7 @@ padding-top:15px;
 	display:inline-block;
 	padding-left:15px;
 	padding-right:0px;
-	height:78px;
+	height:9.55vh;
 	margin:auto;
 }
 
@@ -136,7 +140,8 @@ padding-top:15px;
 	display:inline-block;
 	padding-left:15px;
 	padding-right:0px;
-	height:78px;
+	height:9.55vh;
+	width:7vw;
 	float:right;
 }
 
@@ -144,9 +149,10 @@ padding-top:15px;
 {
 	background-color: #b7d051;
 	display:inline-block;
-	padding-left:0px;
-	padding-right:15px;
-	height:78px;
+	padding-left:15px;
+	padding-right:0px;
+	height:9.55vh;
+	width:8.5vw;
 	float:right;
 }
 
@@ -156,7 +162,8 @@ padding-top:15px;
 	display:inline-block;
 	padding-left:15px;
 	padding-right:0px;
-	height:78px;
+	height:9.55vh;
+	width:8vw;
 	float:right;
 }
 
@@ -166,7 +173,8 @@ padding-top:15px;
 	display:inline-block;
 	padding-left:15px;
 	padding-right:15px;
-	height:78px;
+	height:9.55vh;
+	width:7wv;
 	float:right;
 }
 
@@ -216,7 +224,7 @@ h4{
 h5{
 	font-family: Allan;
 	color: #454545;
-	font-size:3em;
+	font-size:2.6vw;
 	text-align:right;
 	padding-right:20px;
 	margin-bottom:5px;
@@ -225,7 +233,7 @@ h5{
 h6{
 	font-family: Allan;
 	color: #454545;
-	font-size:3em;
+	font-size:2.6vw;
 	text-align:left;
 	padding-left:20px
 	margin-bottom:5px;

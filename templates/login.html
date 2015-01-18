@@ -21,20 +21,25 @@ function getLocation() {
 
 {% extends "base.html" %}
 {% block content %}
-    <div id="menu">
-        <div id="lefttext">
-            <div id="wrapabout">
-                <h5>
-                <a style="color:#DFFE62" href="about">about</a>
-                </h5>
-            </div>
-        </div>
-        <div id="wrapreg">
-            <h6>
-            <a style="color:#454545" href="register">register</a>
-            </h6>
-        </div>
-    </div>
+<div id="menu">
+	<div id="menu">
+	<div id="lefttext">
+			<div id="wrapabout">
+				<h5>
+					<a style="color:#DFFE62" href="about">about</a>
+				</h5>
+			</div>
+	</div>
+	<div id="righttext">
+			<div id="wrapreg">
+				<h6>
+					<a style="color:#454545" href="register">register</a>
+				</h6>
+			</div>
+	</div>
+</div>
+
+</div>
     <div class="container">
         <div class="starter-template">
             <div class="row">
@@ -59,9 +64,9 @@ function getLocation() {
                     <input id="login-lon" type="hidden" name="lon" />
 
                     <input type="button" name="login" value="login" onclick="getLocation()">
+
                 </form>
             </div>
         </div>
     </div>
-
 {% endblock %}
