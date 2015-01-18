@@ -24,8 +24,8 @@
             <div class="col-md-8">
                 <h4 style="text-align: center">Your Active Challenges</h4>
                 {% for d in dares %}
-                    <h2>{{d.DareTitle}}</h4>
-                    <p>{{d.verboseDescription}}</p>
+                    <h2>{{d.DareTitle}}</h2>
+                    <p>{{d.VerboseDescription}}</p>
                     <p>Bounty: {{d.bounty}}</p>
                     <form method="POST" action="/account">
                         <input type="hidden" name="d_id" value = "{{d.objectId}}">

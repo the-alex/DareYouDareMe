@@ -16,7 +16,7 @@ def account_route():
             print dir(d_obj)
             d_obj.delete()
 
-            p_obj = posts.Query.filter(dareID=to_delete)
+            p_obj = Dares.Query.filter(dareID=to_delete)
             print dir(p_obj[0])
             p_obj[0].delete()
 
@@ -25,21 +25,15 @@ def account_route():
 
     db = DatabaseManager()
 
-    userid = db.get_userID_from_username("testuser")
+    userid = db.get_userID_from_username(session["username"])
     if userid is None:
         return redirect('/login')
 
-    user_dares = db.get_dares_with_userid(userid)
-
-
-    # print dir(user_dares[0])
-    # print type(user_dares)
-    # print user_dares
+    user_dares = db.get_dares_with_username(session["username"])
 
     options = {
         "dares": user_dares,
-        "username": "testuser",
+        "username": session["username"],
     }
 
     return render_template("account.html", **options)
-

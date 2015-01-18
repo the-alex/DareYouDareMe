@@ -38,10 +38,16 @@ class DatabaseManager(object):
             return None
 
 
+    def get_dares_with_username(self, p_username):
+        try:
+            user_dares = Dares.Query.filter(username=p_username)
+            return user_dares
+        except:
+            return None
 
     def get_dares_with_userid(self, p_userID):
         try:
-            user_dares = posts.Query.filter(userID=p_userID)
+            user_dares = Dares.Query.filter(userID=p_userID)
 
             dare_id = []
 
@@ -79,7 +85,7 @@ class DatabaseManager(object):
     def save_dare(self, dare_things, session):
         dare = Dares()
         dare.DareTitle = dare_things['title']
-        dare.verbosedescription = dare_things['description']
+        dare.VerboseDescription = dare_things['description']
         dare.bounty = int(dare_things['bounty'])
         dare.latitude = float(dare_things['latitude'])
         dare.longitude = float(dare_things['longitude'])
@@ -92,3 +98,5 @@ class DatabaseManager(object):
         dare.videoURL = url
         dare.verified = True
         dare.save()
+
+    # def award_user_points(self, username):
