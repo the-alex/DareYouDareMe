@@ -1,7 +1,6 @@
 from database_utility import DatabaseManager
 from parse_rest.query import QueryResourceDoesNotExist
 from flask import *
-import os
 
 register = Blueprint('register', __name__, template_folder='templates')
 
