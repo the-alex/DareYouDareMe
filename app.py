@@ -24,6 +24,7 @@ app.register_blueprint(controllers.new_dare)
 app.register_blueprint(controllers.venmoauth)
 app.register_blueprint(controllers.about)
 app.register_blueprint(controllers.logout)
+app.register_blueprint(controllers.video)
 
 
 @app.errorhandler(404)

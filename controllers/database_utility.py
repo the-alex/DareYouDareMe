@@ -74,13 +74,18 @@ class DatabaseManager(object):
         return Dares.Query.filter(id=id)
 
     def save_dare(self, dare_things):
-        dare = Dare()
-        dare.title = dare_things['title']
-        dare.description = dare_things['description']
-        dare.bounty = dare_things['bounty']
-        try:
-            dare.save()
-            return True
-        except:
-            return False
+        dare = Dares()
+        dare.DareTitle = dare_things['title']
+        dare.verbosedescription = dare_things['description']
+        dare.bounty = int(dare_things['bounty'])
+        dare.save()
+        return True
+
+    def give_video(self, url, id):
+        dare = Dares.Query.get(id = id)
+        dare.videoURL = url
+        dare.verified = True
+        dare.save()
+        
+        
 
