@@ -1,14 +1,33 @@
 {% extends 'base.html' %}
-
 {% block content %}
-<h2> New Dare Page </h2>
-
-<form method="POST">
-
-    <input type="text" name="dare_title" placeholder="Dare Title" required> </input> <br>
-    <input type="text" name="dare_description" placeholder="Dare Description" required> </input> <br>
-    <input type="number" name="bounty" placeholder="Bounty" required> </input> <br>
-
-    <input type="submit"   name="Submit" value="Submit New Dare "> 
-</form>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>New Dare</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form method="POST">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="dare_title" placeholder="Dare Title" required>
+                        <br>
+                        <textarea class="form-control" type="text" name="dare_description" placeholder="Dare Description" rows="3" required></textarea>
+                        <br>
+                        <div class="form-group">
+                            <div class="input-group" style="width: 40%; margin-right: auto; margin-left: auto">
+                                <div class="input-group-addon">$</div>
+                                <input type="number" name="bounty" class="form-control" id="exampleInputAmount" placeholder="dollars">
+                                <div class="input-group-addon">.00</div>
+                            </div>
+                        </div>
+                        <input style="color: #67ccfa" class="form-control" type="submit" name="Submit" value="Submit New Dare ">
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
 {% endblock %}
