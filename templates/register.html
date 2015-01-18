@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-
+<div id="menu1"></div>
+<div id="menu">
+	<h5><a style="color:#c9e264" href="about">about </a></h5>
+</div>
     <div class="container">
-		
         <div class="row">
 		<div id="logos" class="span12">
 			<img id = "BountyCoin" src="/static/css/BountyCoin.png"/>
@@ -10,7 +12,7 @@
 		</div>
 		<div class="row">
 		<div id="logos" class="span12">
-			<img id = "NoBounty" src="/static/css/DareYouDareNoBounty.png"/>
+			
 		</div>
 		</div>
 		<div class="row">
@@ -20,13 +22,20 @@
                 </h1>
             </div>
 		</div>
+
+        {% if error_message %}
+       <div class="alert alert-danger" role="alert">
+             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+               <span class="sr-only">Error:</span>
+               {{error_message}}
+             </div>
+             {% endif %} 
             
-        </div>
 		<div class="row">
 		<div class="col-md-12">
 				<div id="regform">
                 <form action="register" method="POST">
-                    <input type="text" name="email" placeholder="Email" class="form-control" id="regfeild"> </input> <br>
+                    <input type="text" name="username" placeholder="Username" class="form-control" id="regfeild"> </input> <br>
                     <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild"> </input> <br>
                     <input type="submit" name="register" value="register" id="submit">
 				

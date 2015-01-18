@@ -1,5 +1,5 @@
 from database_utility import DatabaseManager
-
+from parse_rest.query import QueryResourceDoesNotExist
 from flask import *
 import os
 
@@ -14,7 +14,7 @@ def register_route():
     }
 
     if "username" in session: # If currently logged in.
-        return redirect(url_for('account'))
+        return redirect('/')
 
     else:
         if request.method == 'GET':
@@ -31,7 +31,7 @@ def register_route():
             # Check if the Username is valid.
             if not p_username:
                 options["error_message"] = "Please enter a username"
-                return render_template("register.html", **options)
+                return render_template("register.html", options)
 
             # If the username field has a string, check if that string
             # matches an entry in the database. (returns a list)
@@ -42,14 +42,15 @@ def register_route():
             # Check ...
             try:
                 possibleUser = dbManager.check_for_user(p_username)
-            except:
+            except QueryResourceDoesNotExist:
                 possibleUser = None
 
+            print possibleUser 
             if possibleUser != None:
                 # If the username is already in use ...
                 if possibleUser.username == p_username:
                     options["error_message"] = "Username already in use"
-                    return render_template("404.html", **options)
+                    return render_template("register.html", **options)
 
             # If the username is not in use, then check if the password
             # is valid.

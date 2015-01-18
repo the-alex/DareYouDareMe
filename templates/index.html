@@ -1,4 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-<h2> Welcome to the Index Page </h2>
+<div id="menu1"></div>
+<div id="menu">
+	<h5><a style="color:#c9e264" href="about">about </a><w style="color:#b7d051">dareyoudare.me</w> <a style="color:#454545" href="account">account</a></h5>
+</div>
+
+<div class="container" id="darehold">
+<div class="row">
+	<div class="col-md-4" id="darebox">
+            {% for dare in needed_dares %}
+                <h3> ACCEPT DARE </h3>
+                <h2>{{ dare.DareTitle }}</h2>
+                <h4>{{ dare.bounty }} bounty</h4>
+            {% endfor %}
+
+            {% for dare in verified_dares %}
+                <h3> VERIFT DARE </h3>
+                <h2>{{ dare.DareTitle }}</h2>
+                <h4>{{ dare.bounty }} bounty</h4>
+            {% endfor %}
+
+
+
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
+		<img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/>
+	</div>
+</div>
 {% endblock %}

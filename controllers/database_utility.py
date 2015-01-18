@@ -17,7 +17,6 @@ class DatabaseManager(object):
         register(keys.APPLICATION_ID, keys.REST_API_KEY, master_key=None)
 
     def add_user(self, username, password):
-
         # The following code is not excellent. In fact, it bugs out
         # when a username is already in use. I should be able to fix it,
         # but I am too tired. (Alex C. // Sat 10:26 am)
@@ -25,7 +24,7 @@ class DatabaseManager(object):
             newUser = ParseUser.signup(username, password)
         except:
             return False
-
+            
         newUser.save()
         return True
 
@@ -63,4 +62,14 @@ class DatabaseManager(object):
 
 
     def check_for_user(self, username):
-        return ParseUser.Query.get(username = p_username)
+        return ParseUser.Query.get(username = username)
+
+    def get_needed_dares(self):
+        return Dares.Query.filter(done__ne=True).filter(verified__ne=True)
+
+    def get_verified_dares(self):
+        return Dares.Query.filter(done__ne=True).filter(verified = True)
+
+    def get_single_dare(self, id):
+        return Dares.Query.filter(id=id)
+
