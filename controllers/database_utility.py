@@ -18,8 +18,11 @@ class DatabaseManager(object):
     def check_for_user(self, username):
         return ParseUser.Query.get(username = username)
 
-    def get_dares(self):
-        return Dares.Query.all()
+    def get_needed_dares(self):
+        return Dares.Query.filter(done__ne=True).filter(verified__ne=True)
+
+    def get_verified_dares(self):
+        return Dares.Query.filter(done__ne=True).filter(verified = True)
 
     def get_single_dare(self, id):
         return Dares.Query.filter(id=id)

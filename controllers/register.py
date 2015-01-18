@@ -14,7 +14,7 @@ def register_route():
     }
 
     if "username" in session: # If currently logged in.
-        return redirect(url_for('account'))
+        return redirect('/')
 
     else:
         if request.method == 'GET':
