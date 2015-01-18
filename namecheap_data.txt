@@ -1,0 +1,14 @@
+email: 
+Mhacks.VYSEP@umich.edu
+
+username:
+mhacksVYSEP
+
+password:
+touchthecow
+
+firstname:
+Young
+
+lastname
+SmallPeas

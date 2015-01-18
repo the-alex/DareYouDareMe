@@ -81,6 +81,6 @@ class DatabaseManager(object):
         try:
             dare.save()
             return True
-        except
+        except:
             return False
 
