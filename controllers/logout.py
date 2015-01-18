@@ -1,7 +1,6 @@
 from database_utility import DatabaseManager
 from database_utility import ParseUser
 from flask import *
-import os
 
 logout = Blueprint('logout', __name__, template_folder='templates')
 

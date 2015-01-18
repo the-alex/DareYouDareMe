@@ -1,10 +1,9 @@
 from flask import *
 from database_utility import DatabaseManager
-import os
 
 new_dare = Blueprint('new_dare', __name__, template_folder='templates')
 
-@new_dare.route('/newDare', methods=['GET', 'POST'])
+@new_dare.route('/new', methods=['GET', 'POST'])
 def new_dare_route():
 
     options = {
@@ -19,9 +18,9 @@ def new_dare_route():
 
     if request.method =='POST':
         dare = {}
-        dare['title']       = request.forms.get("dare_title")
-        dare['description'] = request.forms.get("dare_description")
-        dare['bounty']      = request.forms.get("bounty")
+        dare['title']       = request.form.get("dare_title")
+        dare['description'] = request.form.get("dare_description")
+        dare['bounty']      = request.form.get("bounty")
 
         if not dare['bounty'].isdigit():
             options["errors"] = "Bounty is not a number"
@@ -31,6 +30,10 @@ def new_dare_route():
         db_success = dm.save_dare(dare)
         if db_success:
             options["successful_dare_post"] = True
+            return redirect('/')
+        else:
+            options['errors'] = "Danger, Will Robinson!"
+            
 
     return render_template("new_dare.html", **options)
 

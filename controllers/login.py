@@ -1,7 +1,6 @@
 from database_utility import DatabaseManager
 from database_utility import ParseUser
 from flask import *
-import os
 
 login = Blueprint('login', __name__, template_folder='templates')
 
@@ -18,14 +17,12 @@ def login_route():
         # Provide access to database
         dbManager = DatabaseManager()
 
-        # TODO: Implement try/catch on login
         try:
             user = ParseUser.login(p_username, p_password)
         except:
             options['error'] = "Incorrect username or password"
             return render_template("login.html", **options)
 
-        # add to session? I'm going to sleep. // Alex C.
         print user.username
         session['username']= user.username
 

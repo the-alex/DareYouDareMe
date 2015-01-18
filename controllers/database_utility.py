@@ -24,14 +24,14 @@ class DatabaseManager(object):
             newUser = ParseUser.signup(username, password)
         except:
             return False
-            
+
         newUser.save()
         return True
 
     def get_userID_from_username(self, p_username):
         try:
             userID = ParseUser.Query.get(username = p_username)
-            
+
             return userID.objectId
         except:
             return None
@@ -47,7 +47,7 @@ class DatabaseManager(object):
             for object_id in user_dares:
                 #print dir(object_id)
                 dare_id.append(object_id.dareID)
-            
+
             to_return = []
             for thing_id in dare_id:
                 try:
@@ -74,13 +74,18 @@ class DatabaseManager(object):
         return Dares.Query.filter(id=id)
 
     def save_dare(self, dare_things):
-        dare = Dare()
-        dare.title = dare_things['title']
-        dare.description = dare_things['description']
-        dare.bounty = dare_things['bounty']
-        try:
-            dare.save()
-            return True
-        except:
-            return False
+        dare = Dares()
+        dare.DareTitle = dare_things['title']
+        dare.verbosedescription = dare_things['description']
+        dare.bounty = int(dare_things['bounty'])
+        dare.save()
+        return True
+
+    def give_video(self, url, id):
+        dare = Dares.Query.get(id = id)
+        dare.videoURL = url
+        dare.verified = True
+        dare.save()
+        
+        
 

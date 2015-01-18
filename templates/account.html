@@ -1,15 +1,15 @@
+
 {% extends "base.html" %}
 {% block content %}
 <div id="menu1"></div>
 <div id="menu">
-    <h5><a style="color:#c9e264" href="about">about </a><w style="color:#b7d051">dareyoudare.me</w> <a style="color:#454545" href="account">account</a></h5>
+   <div id="lefttext"><h6><a href="logout">logout </a></h6></div><div id="righttext"><h5><a href="/"><w style="color:#b7d051">dareyoudare.me</w></a> <a style="color:#c9e264" href="about">about </a></h5></div>
 </div>
 
 <div class="container" id="darehold">
 <div class="row">
     <div class="col-md-4" id="darebox">
         {% for d in dares %}
-
             <h2>{{d.DareTitle}}</h4>
             <h4>{{d.verboseDescription}}</h4>
             <h4>Bounty: {{d.bounty}}</h4>
@@ -20,11 +20,8 @@
             </form>
 
         {% endfor %}
-
     </div>
     <div class="col-md-2"></div>
-    <div class="col-md-6">
-        <img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/>
-    </div>
+
 </div>
 {% endblock %}

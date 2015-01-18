@@ -1,7 +1,6 @@
 from flask import *
 
 from database_utility import DatabaseManager
-import os
 
 index = Blueprint('index', __name__, template_folder='templates')
 
