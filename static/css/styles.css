@@ -45,9 +45,9 @@
 
 #BountyCoin
 {
-	width:250px;
-	height:250px;
-padding-top:15px;
+	width:15vw;
+
+padding-top:75px;
 }
 
 #BountyCoinMain
@@ -149,10 +149,10 @@ padding-top:15px;
 {
 	background-color: #b7d051;
 	display:inline-block;
-	padding-left:0px;
-	padding-right:15px;
+	padding-left:15px;
+	padding-right:0px;
 	height:9.55vh;
-	width:7wv;
+	width:8.5vw;
 	float:right;
 }
 

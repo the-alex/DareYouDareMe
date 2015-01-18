@@ -1,46 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-    <div id="menu">
-        <div id="lefttext">
-            <div id="wrapabout">
-                <h5>
-                <a style="color:#DFFE62" href="about">about</a>
-                </h5>
-            </div>
-        </div>
-        <div id="wrapreg">
-            <h6>
-            <a style="color:#454545" href="register">register</a>
-            </h6>
-        </div>
-    </div>
+<div id="menu">
+	<div id="menu">
+	<div id="lefttext">
+			<div id="wrapabout">
+				<h5>
+					<a style="color:#DFFE62" href="about">about</a>
+				</h5>
+			</div>
+	</div>
+	<div id="righttext">
+			<div id="wrapreg">
+				<h6>
+					<a style="color:#454545" href="register">register</a>
+				</h6>
+			</div>
+	</div>
+</div>
+
+</div>
     <div class="container">
         <div class="starter-template">
-            <div class="row">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <img class="img-responsive" src="/static/css/DareYouDareMe.png">
-            </div>
-            <div class="col-lg-2"></div>
-            <div class="row">
-                <div class="error-box">
-                    <h2>
-                    {%if error %}
+            <h1><img src="/static/css/DareYouDareMe.png"</h1>
+            <h3>
+                {%if error %}
                     {{error}}
-                    {%endif%}
-                    </h2>
-                </div>
-                <div class="row">
-                    <form method="POST" action="/login">
-                        <input type="text" name="username" placeholder="Email" class="form-control" id="regfeild" required>
-                        <br>
-                        <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild" required>
-                        <br>
-                        <input type="submit" name="login" value="login" id="submit">
-                    </form>
-                </div>
+                {%endif%}
+            </h3>
+            <div class="login-box">
+                <form method="POST" action="/login">
+                    <input type="text" name="username" placeholder="Email" class="form-control" id="regfeild" required> </input> <br>
+                    <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild" required> </input> <br>
+                    <input type="submit" name="login" value="login" id="submit">
+                </form>
             </div>
         </div>
     </div>
-</div>
+
+
+
 {% endblock %}
