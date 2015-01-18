@@ -1,48 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<<<<<<< HEAD
-
-<div id="menu">
-	<div id="lefttext">
-			<div id="wrapabout">
-				<h5>
-					<a style="color:#DFFE62" href="about">about</a>
-				</h5>
-			</div>
-	</div>
-		<a href="/">
-			<img id="NoBounty" src="/static/css/DareYouDareNoBounty.png"/>
-		</a>
-			<div id="wrapaccount">
-				<h5>
-					<a style="color:#DFFE62" href="account">account</a>
-				</h5>
-			</div>
-			<div id="wraplogout">
-				<h6>
-					<a style="color:#DFFE62" href="logout">logout</a>
-				</h6>
-			</div>
-</div>
-
-<div class="container" id="darehold">
-<div class="row">
-	<div class="col-md-4"></div>
-    <div class="col-md-4" id="darebox">
-        {% for d in dares %}
-            <h2>{{d.DareTitle}}</h4>
-            <h4>{{d.verboseDescription}}</h4>
-            <h4>Bounty: {{d.bounty}}</h4>
-
-            <form method="POST" action="/account">
-                <input type="hidden" name="d_id" value = "{{d.objectId}}">
-                <input type="submit" name="delete" value="Delete Dare">
-            </form>
-
-        {% endfor %}
-    </div>
-    <div class="col-md-4"></div>
-=======
     <div id="menu">
         <div id="lefttext">
             <div id="wrapabout">
@@ -65,7 +22,7 @@
     <div class="container" id="darehold">
         <div class="row">
             <div class="col-md-8">
-                <h4>Your Active Challenges</h4>
+                <h4 style="text-align: center">Your Active Challenges</h4>
                 {% for d in dares %}
                     <h2>{{d.DareTitle}}</h4>
                     <p>{{d.verboseDescription}}</p>
@@ -89,8 +46,6 @@
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>
->>>>>>> adding-to-account
-
                 <form action="https://api.venmo.com/v1/oauth/authorize?client_id=CLIENT_ID&scope=make_payments%20access_profile%20access_email%20access_phone%20access_balance&response_type=code&redirect_uri=http://dare.me/venmoauth">
                     <div class="form-group">
                         <h2>Venmo Authorization</h2>
