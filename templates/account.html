@@ -1,12 +1,12 @@
-
 {% extends "base.html" %}
 {% block content %}
 <div id="menu1"></div>
 <div id="menu">
    <div id="lefttext"><h6><a href="logout">logout </a></h6></div><div id="righttext"><h5><a href="/"><w style="color:#b7d051">dareyoudare.me</w></a> <a style="color:#c9e264" href="about">about </a></h5></div>
 </div>
-
 <div class="container" id="darehold">
+
+<!-- Account Info Header -->
 <div class="row">
     <div class="col-md-4" id="darebox">
         {% for d in dares %}
@@ -21,7 +21,5 @@
 
         {% endfor %}
     </div>
-    <div class="col-md-2"></div>
-
 </div>
 {% endblock %}
