@@ -63,7 +63,7 @@ def register_route():
             dbManager.add_user(p_username, p_password)
 
             session['username'] = p_username
-            return redirect_to('/')
+            return redirect('/')
 
 
 
