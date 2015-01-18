@@ -19,13 +19,20 @@
                 </h1>
             </div>
 		</div>
+
+        {% if error_message %}
+       <div class="alert alert-danger" role="alert">
+             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+               <span class="sr-only">Error:</span>
+               {{error_message}}
+             </div>
+             {% endif %} 
             
-        </div>
 		<div class="row">
 		<div class="col-md-12">
 				<div id="regform">
                 <form action="register" method="POST">
-                    <input type="text" name="email" placeholder="Email" class="form-control" id="regfeild"> </input> <br>
+                    <input type="text" name="username" placeholder="Username" class="form-control" id="regfeild"> </input> <br>
                     <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild"> </input> <br>
                     <input type="submit" name="register" value="register" id="submit">
 				

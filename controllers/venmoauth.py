@@ -11,3 +11,9 @@ def account_route():
     # Redirect back to home
     return redirect(url_for('index'))
         
+@venmoauth.route('/pay/:id', methods=['GET', 'POST'])
+def pay_things():
+    payee = session.username
+    
+    dare_id = request.kwargs.get('id', '')
+

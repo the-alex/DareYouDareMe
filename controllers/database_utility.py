@@ -12,21 +12,15 @@ class DatabaseManager(object):
         register(keys.APPLICATION_ID, keys.REST_API_KEY, master_key=None)
 
     def add_user(self, username, password):
-
-        # The following code is not excellent. In fact, it bugs out
-        # when a username is already in use. I should be able to fix it,
-        # but I am too tired. (Alex C. // Sat 10:26 am)
-        try:
-            newUser = ParseUser.signup(username, password)
-        except:
-            options["error_message"] = "This user already exists!"
-            return render_template("register.html", **options)
-
+        newUser = ParseUser.signup(username, password)
         newUser.save()
 
     def check_for_user(self, username):
-        return ParseUser.Query.get(username = p_username)
+        return ParseUser.Query.get(username = username)
 
     def get_dares(self):
         return Dares.Query.all()
+
+    def get_single_dare(self, id):
+        return Dares.Query.filter(id=id)
 
