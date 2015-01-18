@@ -1,6 +1,5 @@
 from flask import *
 from database_utility import DatabaseManager
-import os
 
 venmoauth = Blueprint('venmoauth', __name__, template_folder='templates')
 
