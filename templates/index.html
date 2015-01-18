@@ -40,7 +40,7 @@
 			<br></br>
             <div style="text-align: center"><input type="submit" style="" class="btn btn-default" value="Create New Dare"></div>
         </form>
-		
+
     </div>
 	<div class="col-md-3"></div>
     <div class="col-md-1"><img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/></div>
@@ -65,7 +65,6 @@
     </div>
 
     <div class="col-md-4" id="dareboxright">
-<<<<<<< HEAD
         <h8> Verify Claims</h8>
             {% for dare in claimed_dares %}
             <form method="POST" action="/verify">
@@ -78,11 +77,6 @@
                 <input type="checkbox" name="verify-checkbox" id="{{ dare.objectId }}-verify" value="Is it Legit?" style="visibility:hidden">
                 <input type="submit" id="{{ dare.objectId }}-verify-button" value="Verify!" style="visibility:hidden">
                 <a onclick="unhide('{{dare.objectId}}-verify');unhide('{{dare.objectId}}-verify-button');unhide('{{dare.objectId}}-verify-label')"><h3>VERIFY DARE</h3></a>
-=======
-        <h7> Veiw Past Dares</h7>
-            {% for dare in verified_dares %}
-                <h3> VERIFIED DARE </h3>
->>>>>>> FETCH_HEAD
                 <h2>{{ dare.DareTitle }}</h2>
                 <p>{{ dare.VerboseDescription }}</p>
                 <h4>{{ dare.bounty }} bounty</h4>
