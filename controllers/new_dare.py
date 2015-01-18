@@ -21,7 +21,7 @@ def new_dare_route():
         dare['title'] = request.form.get("dare_title")
         dare['description'] = request.form.get("dare_description")
         dare['bounty'] = request.form.get("bounty")
-        
+
         dare['latitude'] = session['latlon']['lat']
         dare['longitude'] = session['latlon']['lon']
 
@@ -30,13 +30,13 @@ def new_dare_route():
 
         # send to the database
         dm = DatabaseManager()
-        db_success = dm.save_dare(dare)
+        db_success = dm.save_dare(dare, session)
         if db_success:
             options["successful_dare_post"] = True
             return redirect('/')
         else:
             options['errors'] = "Danger, Will Robinson!"
-            
+
 
     return render_template("new_dare.html", **options)
 

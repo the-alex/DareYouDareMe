@@ -76,11 +76,14 @@ class DatabaseManager(object):
     def get_single_dare(self, id):
         return Dares.Query.filter(id=id)
 
-    def save_dare(self, dare_things):
+    def save_dare(self, dare_things, session):
         dare = Dares()
         dare.DareTitle = dare_things['title']
         dare.verbosedescription = dare_things['description']
         dare.bounty = int(dare_things['bounty'])
+        dare.latitude = float(dare_things['latitude'])
+        dare.longitude = float(dare_things['longitude'])
+        dare.username = session['username']
         dare.save()
         return True
 
@@ -89,6 +92,3 @@ class DatabaseManager(object):
         dare.videoURL = url
         dare.verified = True
         dare.save()
-        
-        
-
