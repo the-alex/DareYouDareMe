@@ -52,7 +52,7 @@ padding-top:15px;
 
 #BountyCoinMain
 {
-	width:600px; 
+	width:430px; 
 	padding-top:15px;	
 	float: left;
 	position:fixed;
@@ -72,6 +72,7 @@ padding-top:15px;
 	height:78px;
 	background-color:#DFFE62;
 	top:0;
+	position:fixed
 	/*margin-top:15px; */
 }
 /*
@@ -105,9 +106,18 @@ padding-top:15px;
 		margin-top:65px;
 }
 
-#darebox
+#dareboxleft
 {
-	border: solid 1px #016897;
+	padding-top:40px;
+	border: solid 0px #016897;
+	float: left;
+}
+
+#dareboxright
+{
+	padding-top:40px;
+	border: solid 0px #016897;
+	float: right;
 }
 
 #wraplogo
@@ -154,7 +164,7 @@ padding-top:15px;
 {
 	background-color: #016897;
 	display:inline-block;
-	padding-left:0px;
+	padding-left:15px;
 	padding-right:15px;
 	height:78px;
 	float:right;
@@ -191,7 +201,8 @@ h2
 h3{
 	font-family: Gulim, Tahoma;
 	color: #dffe62;
-	font-size: 4em;
+	font-size: 3em;
+	text-align:center;
 }
 
 h4{
@@ -216,7 +227,7 @@ h6{
 	color: #454545;
 	font-size:3em;
 	text-align:left;
-	padding-left:20px;
+	padding-left:20px
 	margin-bottom:5px;
 }
 
@@ -226,6 +237,14 @@ h7
 	font-size:2.3em;
 	color: #cfcfcf;
 	text-align: center;
+}
+
+h8 {
+	font-family: Allan;
+	text-align: center;
+	color: #cfcfcf;
+	font-size: 4em;
+	padding-left:30px;
 }
 
 #reghead
