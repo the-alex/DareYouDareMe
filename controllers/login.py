@@ -19,7 +19,11 @@ def login_route():
         dbManager = DatabaseManager()
 
         # TODO: Implement try/catch on login
-        user = ParseUser.login(p_username, p_password)
+        try:
+            user = ParseUser.login(p_username, p_password)
+        except:
+            options['error'] = "Incorrect username or password"
+            return render_template("login.html", **options)
 
         # add to session? I'm going to sleep. // Alex C.
         print user.username

@@ -59,7 +59,10 @@ def register_route():
 
             # If the password and username check out, then attempt
             # to add the user to the database.
-            dbManager.add_user(p_username, p_password)
+            if not dbManager.add_user(p_username, p_password):
+                options["error_message"] = "This user already exists!"
+                return render_template("register.html", **options)
+            
             return render_template("index.html", **options)
 
 

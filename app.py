@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder='templates')
 
 app.secret_key = urandom(24)
 app.permanent = True
-app.permanent_session_lifetime = timedelta(minutes=(60*24*31)) # About a month
+app.permanent_session_lifetime = timedelta(minutes=(60*24)) # One day
 
 
 # Example how to add a blueprint to hierarchy

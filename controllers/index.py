@@ -8,5 +8,5 @@ def index_route():
     if 'username' in session:
         return render_template("index.html")
     else:
-        return render_template("login.html")
+        return redirect("/login")
 

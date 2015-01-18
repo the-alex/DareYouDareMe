@@ -3,6 +3,14 @@ from parse_rest.connection import register
 from parse_rest.user import User as ParseUser
 from parse_rest.datatypes import Object as ParseObject
 
+
+class posts(ParseObject):
+    pass
+
+class Dares(ParseObject):
+    pass
+
+
 class DatabaseManager(object):
     """Helps with database operations, yo"""
     def __init__(self):
@@ -16,10 +24,43 @@ class DatabaseManager(object):
         try:
             newUser = ParseUser.signup(username, password)
         except:
-            options["error_message"] = "This user already exists!"
-            return render_template("register.html", **options)
+            return False
 
         newUser.save()
+        return True
+
+    def get_userID_from_username(self, p_username):
+        try:
+            userID = ParseUser.Query.get(username = p_username)
+            
+            return userID.objectId
+        except:
+            return None
+
+
+
+    def get_dares_with_userid(self, p_userID):
+        try:
+            user_dares = posts.Query.filter(userID=p_userID)
+
+            dare_id = []
+
+            for object_id in user_dares:
+                #print dir(object_id)
+                dare_id.append(object_id.dareID)
+            
+            to_return = []
+            for thing_id in dare_id:
+                try:
+                    to_return.append(Dares.Query.get(objectId=thing_id))
+                except:
+                    continue
+
+            return to_return
+
+        except:
+            return None
+
 
     def check_for_user(self, username):
         return ParseUser.Query.get(username = p_username)
