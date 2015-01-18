@@ -45,15 +45,15 @@
 
 #BountyCoin
 {
-	width:250px; 
-	height:250px; 
-padding-top:15px;	
+	width:250px;
+	height:250px;
+padding-top:15px;
 }
 
 #BountyCoinMain
 {
-	width:600px; 
-	padding-top:15px;	
+	width:600px;
+	padding-top:15px;
 	float: left;
 	position:fixed;
 }
