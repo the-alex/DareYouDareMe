@@ -1,25 +1,44 @@
 {% extends "base.html" %}
 {% block content %}
-<div id="menu1"></div>
-<div id="menu">
-   <div id="lefttext"><h6><a href="logout">logout </a></h6></div><div id="righttext"><h5><a href="/"><w style="color:#b7d051">dareyoudare.me</w></a> <a style="color:#c9e264" href="about">about </a></h5></div>
-</div>
-<div class="container" id="darehold">
-
-<!-- Account Info Header -->
-<div class="row">
-    <div class="col-md-4" id="darebox">
-        {% for d in dares %}
-            <h2>{{d.DareTitle}}</h4>
-            <h4>{{d.verboseDescription}}</h4>
-            <h4>Bounty: {{d.bounty}}</h4>
-
-            <form method="POST" action="/account">
-                <input type="hidden" name="d_id" value = "{{d.objectId}}">
-                <input type="submit" name="delete" value="Delete Dare">
-            </form>
-
-        {% endfor %}
+    <div id="menu1"></div>
+    <div id="menu">
+        <div id="lefttext"><h6><a href="logout">logout </a></h6></div><div id="righttext"><h5><a href="/"><w style="color:#b7d051">dareyoudare.me</w></a> <a style="color:#c9e264" href="about">about </a></h5></div>
     </div>
-</div>
-{% endblock %}
+
+    <div class="container" id="darehold">
+        <!-- Account Info Header -->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" id="darebox">
+                {% for d in dares %}
+                    <h2>{{d.DareTitle}}</h4>
+                    <h4>{{d.verboseDescription}}</h4>
+                    <h4>Bounty: {{d.bounty}}</h4>
+                    <form method="POST" action="/account">
+                        <input type="hidden" name="d_id" value = "{{d.objectId}}">
+                        <input type="submit" name="delete" value="Delete Dare">
+                    </form>
+                {% endfor %}
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <h4 style="text-align: center">Account Info</h4>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <div class="row">
+            <form action="" method="POST">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <input type="button" name="venmoAuth" value="Authorize Venmo">
+                </div>
+                <div class="col-md-4"></div>
+
+
+            </form>
+        </div>
+    {% endblock %}
