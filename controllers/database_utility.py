@@ -114,5 +114,5 @@ class DatabaseManager(object):
 
     def award_user_points(self, username, amount):
         user = ParseUser.Query.get(username = username)
-        user.points += amount
+        user.userScore += amount
         user.save()

@@ -23,7 +23,7 @@ def route_verify():
         reward = dare.bounty
         dare.verified = True
         # Get person who claimed dare
-        dbManager.award_points(claimer, reward)
+        dbManager.award_user_points(claimer, reward)
     else:
         dare.claiming_user = ""
         dare.claimed = False
