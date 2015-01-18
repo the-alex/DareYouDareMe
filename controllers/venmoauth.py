@@ -1,7 +1,9 @@
 from flask import *
 import os
 
-@account.route('/venmoauth', methods=['GET', 'POST'])
+venmoauth = Blueprint('venmoauth', __name__, template_folder='templates')
+
+@venmoauth.route('/venmoauth', methods=['GET', 'POST'])
 def account_route():
     authcode = request.args.get('code', '')
     # Save authcode to Parse User
