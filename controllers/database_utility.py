@@ -73,3 +73,14 @@ class DatabaseManager(object):
     def get_single_dare(self, id):
         return Dares.Query.filter(id=id)
 
+    def save_dare(self, dare_things):
+        dare = Dare()
+        dare.title = dare_things['title']
+        dare.description = dare_things['description']
+        dare.bounty = dare_things['bounty']
+        try:
+            dare.save()
+            return True
+        except
+            return False
+
