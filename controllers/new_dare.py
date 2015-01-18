@@ -1,6 +1,5 @@
 from flask import *
 from database_utility import DatabaseManager
-import os
 
 new_dare = Blueprint('new_dare', __name__, template_folder='templates')
 
