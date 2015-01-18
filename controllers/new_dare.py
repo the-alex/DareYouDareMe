@@ -1,4 +1,5 @@
 from flask import *
+from database_utility import DatabaseManager
 import os
 
 new_dare = Blueprint('new_dare', __name__, template_folder='templates')
@@ -13,19 +14,21 @@ def new_dare_route():
     }
 
     if "username" not in session: # not currently logged in
-        return redirect(url_for('login'))
+        return redirect('/login')
 
 
     if request.method =='POST':
-        dare_title       = request.forms.get("dare_title")
-        dare_description = request.forms.get("dare_description")
-        dare_bounty      = request.forms.get("bounty")
+        dare = {}
+        dare['title']       = request.forms.get("dare_title")
+        dare['description'] = request.forms.get("dare_description")
+        dare['bounty']      = request.forms.get("bounty")
 
-        if not dare_bounty.isdigit():
+        if not dare['bounty'].isdigit():
             options["errors"] = "Bounty is not a number"
 
         # send to the database
-        db_success = True
+        dm = DatabaseManager()
+        db_success = dm.save_dare(dare)
         if db_success:
             options["successful_dare_post"] = True
 
