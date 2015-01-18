@@ -31,8 +31,10 @@
 	<div class="col-md-4" id="dareboxleft">
 		<h8> Claim Open Dares</h8>
             {% for dare in needed_dares %}
-            <form action="POST">
-                <h3> ACCEPT DARE </h3>
+            <form method="POST" action="/video">
+                <input type="hidden" name="id" value="{{ dare.objectId }}">
+                <input type="text" name="url" id="{{ dare.objectId }}"  style="visibility:hidden">
+                <a onclick="unhide('{{dare.objectId}}')"><h3> ACCEPT DARE </h3></a>
                 <h2>{{ dare.DareTitle }}</h2>
                 <h4>{{ dare.bounty }} bounty</h4>
 				<hr style="border-top: dotted 3px;" />
@@ -54,4 +56,10 @@
             {% endfor %}
 	</div>
 </div>
+
+<script type="text/javascript">
+    function unhide(id){
+        document.getElementById(id).style.visibility = "visible";
+    };
+</script>
 {% endblock %}
