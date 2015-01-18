@@ -40,12 +40,14 @@
 			<br></br>
             <div style="text-align: center"><input type="submit" style="" class="btn btn-default" value="Create New Dare"></div>
         </form>
+		
     </div>
-    <div class="col-md-4"></div>
+	<div class="col-md-3"></div>
+    <div class="col-md-1"><img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/></div>
 </div>
 <div class="row">
     <div class="col-md-4" id="dareboxleft">
-        <h8> Claim Open Dares</h8>
+        <h7> Claim Open Dares</h7>
             {% for dare in needed_dares %}
             <form method="POST" action="/video">
                 <input type="hidden" name="id" value="{{ dare.objectId }}">
@@ -59,11 +61,10 @@
     </div>
 
     <div class="col-md-4">
-        <img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/>
     </div>
 
     <div class="col-md-4" id="dareboxright">
-        <h8> Watch Past Dares</h8>
+        <h7> Veiw Past Dares</h7>
             {% for dare in verified_dares %}
                 <h3> VERIFIED DARE </h3>
                 <h2>{{ dare.DareTitle }}</h2>

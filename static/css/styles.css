@@ -52,8 +52,9 @@ padding-top:75px;
 
 #BountyCoinMain
 {
-	width:430px;
+	width:300px;
 	padding-top:15px;
+	margin-right:70px;
 	float: left;
 	position:fixed;
 }
@@ -233,7 +234,7 @@ h5{
 
 h6{
 	font-family: Allan;
-	color: #	;
+	color: # ;
 	font-size:2.7vw;
 	text-align:left;
 	padding-left:20px
