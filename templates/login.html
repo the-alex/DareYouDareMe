@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+<<<<<<< HEAD
 <div id="menu">
 	<div id="menu">
 	<div id="lefttext">
@@ -17,20 +18,23 @@
 </div>
 
 </div>
+=======
+    <div id="menu1"></div>
+    <div id="menu">
+        <h5><a style="color:#c9e264" href="about">about </a><a style="color:#454545" href="register">register</a></h5>
+    </div>
+>>>>>>> fixing-login-page
     <div class="container">
         <div class="starter-template">
-            <h1><img src="/static/css/DareYouDareMe.png"</h1>
-            <h3>
-                {%if error %}
-                    {{error}}
-                {%endif%}
-            </h3>
-            <div class="login-box">
-                <form method="POST" action="/login">
-                    <input type="text" name="username" placeholder="Email" class="form-control" id="regfeild" required> </input> <br>
-                    <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild" required> </input> <br>
-                    <input type="submit" name="login" value="login" id="submit">
-                </form>
+
+            <div class="row">
+                <div class="col-lg-2"></div>
+
+                <div class="col-lg-8">
+                    <img class="img-responsive" src="/static/css/DareYouDareMe.png">
+                </div>
+
+                <div class="col-lg-2"></div>
             </div>
         </div>
     </div>
