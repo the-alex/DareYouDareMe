@@ -11,4 +11,5 @@ def proof_route():
     db = DatabaseManager()
 
     userid = db.give_proof(url, id, session)
-    return render_template("/")
+    # return render_template("index.html")
+    return redirect("/")

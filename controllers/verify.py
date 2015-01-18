@@ -14,9 +14,11 @@ def route_verify():
     dare_id = dare_id.replace("-verify", "")
 
     # Get dare
-    dare = dbManager.get_single_dare(dare_id)
+    dare_set = dbManager.get_single_dare(dare_id)
 
-    if user_response == True:
+    dare = dare_set[0]
+
+    if user_response == "True":
         claimer = dare.claiming_user
         reward = dare.bounty
         dare.verified = True
@@ -26,5 +28,6 @@ def route_verify():
         dare.claiming_user = ""
         dare.claimed = False
 
-    dare[0].save()
+    dare.save()
+    # return render_template("index.html")
     return redirect("/")

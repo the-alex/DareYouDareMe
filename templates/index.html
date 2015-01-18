@@ -74,7 +74,7 @@
                 </p>
                 <input type="hidden" name="id" value="{{ dare.objectId }}-verify">
                 <input type="hidden" name="bounty" value="{{ dare.bounty }}">
-                <input type="checkbox" name="verify-checkbox" id="{{ dare.objectId }}-verify" value="Is it Legit?" style="visibility:hidden">
+                <input type="checkbox" name="verify-checkbox" id="{{ dare.objectId }}-verify" value="True" style="visibility:hidden">
                 <input type="submit" id="{{ dare.objectId }}-verify-button" value="Verify!" style="visibility:hidden">
                 <a onclick="unhide('{{dare.objectId}}-verify');unhide('{{dare.objectId}}-verify-button');unhide('{{dare.objectId}}-verify-label')"><h3>VERIFY DARE</h3></a>
                 <h2>{{ dare.DareTitle }}</h2>
