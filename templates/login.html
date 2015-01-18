@@ -1,3 +1,24 @@
+<script type="text/javascript">
+
+function showPosition(position) {
+    document.getElementById("login-lat").value = position.coords.latitude;
+    document.getElementById("login-lon").value = position.coords.longitude;
+    
+    document.getElementById("login-action").submit();
+}
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else{
+        document.getElementById("login-lat").value =  42.292678;
+        document.getElementById("login-lon").value = -83.716131;
+        document.getElementById("login-action").submit();
+    }
+}
+</script>
+
 {% extends "base.html" %}
 {% block content %}
 <div id="menu1"></div>
@@ -15,15 +36,16 @@
 
             </h3>
             <div class="login-box">
-                <form method="POST" action="/login">
+                <form id="login-action" method="POST" action="/login" >
                     <input type="text" name="username" placeholder="Email" class="form-control" id="regfeild" required> </input> <br>
                     <input type="password" name="password" placeholder="Password" class="form-control" id="regfeild" required> </input> <br>
-                    <input type="submit" name="login" value="login" id="submit">
+
+                    <input id="login-lat" type="hidden" name="lat" />
+                    <input id="login-lon" type="hidden" name="lon" />
+
+                    <input type="button" name="login" value="login" onclick="getLocation()">
                 </form>
             </div>
         </div>
     </div>
-
-    
-
 {% endblock %}

@@ -2,6 +2,7 @@ import keys
 from parse_rest.connection import register
 from parse_rest.user import User as ParseUser
 from parse_rest.datatypes import Object as ParseObject
+from parse_rest.datatypes import GeoPoint
 
 
 class posts(ParseObject):
@@ -64,8 +65,10 @@ class DatabaseManager(object):
     def check_for_user(self, username):
         return ParseUser.Query.get(username = username)
 
-    def get_needed_dares(self):
-        return Dares.Query.filter(done__ne=True).filter(verified__ne=True)
+    def get_needed_dares(self, my_lat, my_lon):
+        my_loc = GeoPoint(latitude=my_lat, longitude=my_lon)
+
+        return Dares.Query.filter(done__ne=True).filter(verified__ne=True).filter(location__nearSphere=my_loc)
 
     def get_verified_dares(self):
         return Dares.Query.filter(done__ne=True).filter(verified = True)

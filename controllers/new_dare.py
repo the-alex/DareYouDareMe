@@ -18,9 +18,12 @@ def new_dare_route():
 
     if request.method =='POST':
         dare = {}
-        dare['title']       = request.form.get("dare_title")
+        dare['title'] = request.form.get("dare_title")
         dare['description'] = request.form.get("dare_description")
-        dare['bounty']      = request.form.get("bounty")
+        dare['bounty'] = request.form.get("bounty")
+        
+        dare['latitude'] = session['latlon']['lat']
+        dare['longitude'] = session['latlon']['lon']
 
         if not dare['bounty'].isdigit():
             options["errors"] = "Bounty is not a number"

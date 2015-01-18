@@ -14,6 +14,10 @@ def login_route():
         # Get the text entered in the fields.
         p_username = request.form.get('username')
         p_password = request.form.get('password')
+
+        lat = request.form.get("lat")
+        lon = request.form.get("lon")
+
         # Provide access to database
         dbManager = DatabaseManager()
 
@@ -24,7 +28,12 @@ def login_route():
             return render_template("login.html", **options)
 
         print user.username
-        session['username']= user.username
+        session['username'] = user.username
+        session['latlon']  = {
+            "lat": lat,
+            "lon": lon
+        }
+
 
         return redirect('/')
 
