@@ -24,14 +24,14 @@ class DatabaseManager(object):
             newUser = ParseUser.signup(username, password)
         except:
             return False
-            
+
         newUser.save()
         return True
 
     def get_userID_from_username(self, p_username):
         try:
             userID = ParseUser.Query.get(username = p_username)
-            
+
             return userID.objectId
         except:
             return None
@@ -47,7 +47,7 @@ class DatabaseManager(object):
             for object_id in user_dares:
                 #print dir(object_id)
                 dare_id.append(object_id.dareID)
-            
+
             to_return = []
             for thing_id in dare_id:
                 try:
