@@ -24,33 +24,34 @@
 			</div>
 </div>
 
+
+
 <div class="container" id="darehold">
 <div class="row">
-	<div class="col-md-4" id="darebox">
-            <em>
-                <h1>Open Dares</h1>
-            </em>
+	<div class="col-md-4" id="dareboxleft">
+		<h8> Claim Open Dares</h8>
             {% for dare in needed_dares %}
             <form action="POST">
                 <h3> ACCEPT DARE </h3>
                 <h2>{{ dare.DareTitle }}</h2>
                 <h4>{{ dare.bounty }} bounty</h4>
+				<hr style="border-top: dotted 3px;" />
             </form>
             {% endfor %}
-
-            <em>
-                <h1>Completed Dares</h1>
-            </em>
-
+	</div>
+	
+	<div class="col-md-4">
+		<img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/>
+	</div>
+	
+	<div class="col-md-4" id="dareboxright">
+		<h8> Watch Past Dares</h8>
             {% for dare in verified_dares %}
-                <h3> VERIFT DARE </h3>
+                <h3> VERIFIED DARE </h3>
                 <h2>{{ dare.DareTitle }}</h2>
                 <h4>{{ dare.bounty }} bounty</h4>
+				<hr style="border-top: dotted 3px;" />
             {% endfor %}
-	</div>
-	<div class="col-md-2"></div>
-	<div class="col-md-6">
-		<img id = "BountyCoinMain" src="/static/css/BountyCoin3.png"/>
 	</div>
 </div>
 {% endblock %}
