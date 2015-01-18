@@ -255,7 +255,16 @@ h8 {
 	padding-left:30px;
 }
 
-#reghead
-{
+#reghead {
 	padding-top:0px;
+}
+
+.spacer {
+	padding: 15px 0px;
+}
+
+p {
+	font-family: Gulim, Tahoma;
+	color: #cfcfcf;
+	font-size: 1.2em;
 }
