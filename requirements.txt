@@ -1,0 +1,13 @@
+Flask==0.10.1
+Jinja2==2.7.3
+MarkupSafe==0.23
+MySQL-python==1.2.5
+ParsePy==0.3.20141108
+Werkzeug==0.9.6
+docopt==0.4.0
+gunicorn==19.1.1
+itsdangerous==0.24
+mandrill==1.0.57
+requests==2.5.1
+six==1.9.0
+wsgiref==0.1.2
