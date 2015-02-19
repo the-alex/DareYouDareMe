@@ -5,7 +5,7 @@ from parse_rest.datatypes import Object as ParseObject
 from parse_rest.datatypes import GeoPoint
 
 
-class posts(ParseObject):
+class Posts(ParseObject):
     pass
 
 class Dares(ParseObject):
